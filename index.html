@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan Cho</title>
+    <style>
+        .emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(-100vh); }
+            to { transform: translateY(200vh); }
+        }
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+            background-color: #F4E1C1;
+            text-align: center;
+            cursor: none;
+            color: #009688;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 15px;
+            background: #FFFFFF;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #FF6F61;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        .highlight {
+            color: #FFA500;
+            font-weight: bold;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        .card {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .card div {
+            flex: 1;
+            min-width: 180px;
+            max-width: 220px;
+            padding: 15px;
+            border-radius: 10px;
+            background: #6AB547;
+            color: #FFFFFF;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+            text-align: center;
+        }
+        .card div:hover {
+            transform: scale(1.1);
+            background: #FFA500;
+        }
+        @media (max-width: 600px) {
+            .card {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card div {
+                width: 70%;
+            }
+        }
+        .contact a {
+            color: #009688;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hidden {
+            display: none;
+        }
+        .cursor {
+            position: absolute;
+            font-size: 2rem;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header"> 
+            <h1>Ryan Cho</h1>
+        </div>
+        <p>
+            🎓 Senior @ the <span class="highlight">Illinois Mathematics and Science Academy</span>
+        </p>
+        <p>Current interests: 🔥 <span class="highlight">Buldak ramen</span>, 🏛️ <span class="highlight">large language models</span>, 🌐 <span class="highlight">Reddit</span>, and 🧠 <span class="highlight">computational neuroscience</span></p>
+        <p>P.S. I’m slightly allergic to 🍉 watermelon and I HATE raw 🍍 pineapple</p>
+        <p>My all-time favorite webtoon: 🧠 <strong>PIGPEN</strong>. I’m also in love with ✨ <strong>WICKED</strong> right now. I can’t wait for Part 2 to release!!!</p>
+        
+        <div class="section">
+            <div class="card">
+                <div onclick="window.location.href='research.html';" style="cursor: pointer;"> 👩‍🔬 <strong>Research</strong><br> Side projects that I have been doing mostly related to cognitive science </div>
+                <div onclick="window.location.href='experience.html';" style="cursor: pointer;"> 💼 <strong>Experience</strong><br> Work experience that I have </div>
+            </div>
+        </div>
+        
+        <div class="section contact">
+            <h2 style="color: #FF6F61;">📬 Contact</h2>
+            <p>Feel free to reach out to <a href="mailto:ryancho1034@gmail.com">ryancho1034@gmail.com</a>, Watermelon1494 on Discord, or even message me on Reddit: <a href="https://www.reddit.com/user/TheCoolFisherman/">TheCoolFisherman</a></p>
+        </div>
+    </div>
+    
+    <div class="cursor" id="cursor">🐸</div>
+
+    <script>
+
+        document.addEventListener("mousemove", (e) => {
+            let cursor = document.getElementById("cursor");
+            cursor.style.left = `${e.pageX}px`;
+            cursor.style.top = `${e.pageY}px`;
+        });
+
+        function createEmoji() {
+            const emojiArray = ['🐢', '🪼', '🧠','yay'];
+            const emoji = document.createElement('div');
+            emoji.classList.add('emoji');
+            emoji.textContent = emojiArray[Math.floor(Math.random() * emojiArray.length)];
+            document.body.appendChild(emoji);
+            
+            emoji.style.left = Math.random() * window.innerWidth + 'px';
+            emoji.style.top = '-50px';
+            emoji.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            
+            setTimeout(() => {
+                emoji.remove();
+            }, 10000);
+        }
+
+        setInterval(createEmoji, 500);
+    </script>
+</body>
+</html>

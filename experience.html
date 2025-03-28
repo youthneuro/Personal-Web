@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Ryan Cho</title>
+    <style>
+        .emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(-100vh); }
+            to { transform: translateY(200vh); }
+        }
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 40px;
+            line-height: 1.3;
+            background-color: #F4E1C1;
+            text-align: center;
+            color: #009688;
+            cursor: none;
+        }
+        .cursor {
+            position: absolute;
+            font-size: 2rem;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #FF6F61;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        .experience-box {
+            background: #6AB547;
+            color: white;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            font-size: 0.9em;
+            line-height: 1.3;
+            cursor: pointer;
+        }
+        .experience-box:hover {
+            transform: scale(1.05) rotate(2deg);
+            background: #FFA500;
+        }
+        .experience-box:hover p {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .floating-menu {
+            position: fixed;
+            top: 50px;
+            right: 50px;
+            background: #6AB547; /* Green */
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            color: white;
+        }
+        .floating-menu:hover {
+            transform: scale(1.1);
+            background: #FFA500; /* Orange hover */
+        }
+        .menu-items {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            text-align: left;
+            min-width: 100px;
+        }
+        .menu-items a {
+            display: block;
+            text-decoration: none;
+            color: #009688; /* Teal */
+            padding: 5px;
+        }
+        .menu-items a:hover {
+            background: #FFA500; /* Orange */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌟 Professional Experience 🌟</h1>
+
+        <div class="experience-box">
+            <h2>🚀 Website Intern @ International Brain Bee (2023-Present)</h2>
+            <p>Created a training bot using OpenAI tools and natural language processing for 40k annual participants around the globe.</p>
+        </div>
+        
+        <div class="experience-box">
+            <h2>🎓 Co-director @ Youth Neuroscience Summer Program (2022-2024)</h2>
+            <p>1.3k annual participants.</p>
+            <p>Set up Python scripts to automate summer program certificates and track attendance on Zoom. </p>
+        </div>
+
+        <div class="experience-box">
+            <h2>🎓 Co-founder @ RespiroLink (2022-2025)</h2>
+            <p>$5.5k in funding. 2nd Place @ IMSA-FERMI Pitch, Finalist @ Diamond Challenge + Celebrating High School Innovators</p>
+            <p>Webscraped respiratory sounds, and analyzed them using spectral analysis + Random Forest. Sensor setup on the chest + a microcontroller.</p>
+        </div>
+        
+        <div class="experience-box">
+            <h2>🌐 Website Lead @ International Youth Neuroscience Association (2022-Present)</h2>
+            <p>Managed 11k site sessions annually.</p>
+            <p>Redeveloped website away from WIX.</p>
+        </div>
+
+        <div class="experience-box">
+            <h2>🔬 Student Researcher @ WE-LAB - Northern Illinois University (2021-Present)</h2>
+            <p>Analyzed different signal processing and machine learning techniques based on accuracy and speed.</p>
+            <p>Published two first-author papers, presented at two conferences, and contributed to two preprints.</p>
+        </div>
+
+        <div class="experience-box">
+            <h2>🧠 Student Researcher @ Voss Laboratory - University of Chicago (2022-Present)</h2>
+            <p>Analyzed intracranial neural data using advanced computational neuroscience techniques.</p>
+            <p>Explored deep brain stimulation and how to target them computationally.</p>
+        </div>
+
+        <div class="experience-box">
+            <h2>📦 Product Management/Consulting Intern @ VisMed3D (2022-2023)</h2>
+            <p>Helped deploy researchers' toothbrush/pill dispenser into the real world through the help of the CEO, Dima Elissa.</p>
+        </div>
+    </div>
+    <div class="floating-menu" id="menu">
+        🗺️ Menu
+        <div class="menu-items" id="menuItems">
+            <a href="index.html">🏠 Home</a>
+            <a href="research.html">🔬 Science</a>
+            <a href="experience.html">💼 Work</a>
+        </div>
+    </div>
+    <div class="cursor" id="cursor">👨‍💻</div>
+    <script>
+        document.addEventListener("mousemove", (e) => {
+            let cursor = document.getElementById("cursor");
+            cursor.style.left = `${e.pageX}px`;
+            cursor.style.top = `${e.pageY}px`;
+        });
+
+        let menu = document.getElementById("menu");
+        let menuItems = document.getElementById("menuItems");
+        
+        menu.addEventListener("click", () => {
+            if (menuItems.style.display === "block") {
+                menuItems.style.display = "none";
+            } else {
+                menuItems.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
