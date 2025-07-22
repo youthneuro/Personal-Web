@@ -1,164 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryan Cho</title>
-    <style>
-        .emoji {
-            position: absolute;
-            font-size: 2rem;
-            animation: fall linear infinite;
-        }
-        @keyframes fall {
-            from { transform: translateY(-100vh); }
-            to { transform: translateY(200vh); }
-        }
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            margin: 40px;
-            line-height: 1.6;
-            background-color: #F4E1C1;
-            text-align: center;
-            cursor: none;
-            color: #009688;
-            overflow: hidden;
-        }
-        .container {
-            overflow: hidden;
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            border-radius: 15px;
-            background: #FFFFFF;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            justify-content: center;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            color: #FF6F61;
-        }
-        @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-10px); }
-        }
-        .highlight {
-            color: #FFA500;
-            font-weight: bold;
-        }
-        .section {
-            margin-top: 20px;
-        }
-        .card {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .card div {
-            flex: 1;
-            min-width: 180px;
-            max-width: 220px;
-            padding: 15px;
-            border-radius: 10px;
-            background: #6AB547;
-            color: #FFFFFF;
-            transition: transform 0.3s ease-in-out;
-            cursor: pointer;
-            text-align: center;
-        }
-        .card div:hover {
-            transform: scale(1.1);
-            background: #FFA500;
-        }
-        @media (max-width: 600px) {
-            .card {
-                flex-direction: column;
-                align-items: center;
-            }
-            .card div {
-                width: 70%;
-            }
-        }
-        .contact a {
-            color: #009688;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .hidden {
-            display: none;
-        }
-        .cursor {
-            position: absolute;
-            font-size: 2rem;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPenn Add/Drop Course Timer: 7 AM EST 7/22/2025</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #011F5B 0%, #990000 100%);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      overflow: hidden;
+    }
+    h1 {
+      color: #fff;
+      font-size: 2.7rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: 2px;
+      text-shadow: 0 4px 24px #990000, 0 1px 0 #011F5B;
+      font-weight: 900;
+      text-align: center;
+    }
+    .subtitle {
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px #011F5B;
+      text-align: center;
+    }
+    #countdown {
+      display: flex;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+      justify-content: center;
+      align-items: center;
+      animation: shake 0.5s infinite alternate;
+    }
+    .countdown-box {
+      min-width: 80px;
+      min-height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 8px 32px rgba(153,0,0,0.4);
+      background: #011F5B;
+      border: 4px solid #990000;
+      position: relative;
+      transition: transform 0.1s;
+      text-shadow: 0 2px 8px #990000;
+      letter-spacing: 2px;
+      animation: pulseBox 1.2s infinite alternate;
+    }
+    .countdown-box:nth-child(2) {
+      background: #990000;
+      border-color: #011F5B;
+      animation-delay: 0.2s;
+    }
+    .countdown-box:nth-child(3) {
+      background: #8C1515;
+      border-color: #fff;
+      animation-delay: 0.4s;
+    }
+    .countdown-box:nth-child(4) {
+      background: #005F86;
+      border-color: #fff;
+      animation-delay: 0.6s;
+    }
+    @keyframes shake {
+      0% { transform: translateX(-3px) rotate(-1deg); }
+      100% { transform: translateX(3px) rotate(1deg); }
+    }
+    @keyframes pulseBox {
+      0% { box-shadow: 0 0 16px #fff, 0 8px 32px rgba(153,0,0,0.4); }
+      100% { box-shadow: 0 0 32px #990000, 0 8px 32px rgba(1,31,91,0.4); }
+    }
+    .colon {
+      font-size: 3.5rem;
+      color: #fff;
+      font-weight: bold;
+      margin: 0 0.2rem;
+      text-shadow: 0 2px 8px #990000;
+      animation: blink 1s steps(1) infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+    .upenn-logo {
+      width: 90px;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 8px #fff);
+    }
+    .intense-text {
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px #990000;
+      animation: pulse 1s infinite alternate;
+      text-align: center;
+    }
+    @keyframes pulse {
+      0% { color: #fff; }
+      100% { color: #990000; }
+    }
+    /* Restored emoji animation */
+    .emoji {
+      position: absolute;
+      font-size: 2.5rem;
+      pointer-events: none;
+      user-select: none;
+      animation: floatAngry 2.5s linear infinite;
+      filter: drop-shadow(0 0 8px #990000);
+    }
+    @keyframes floatAngry {
+      0% {
+        opacity: 0.7;
+        transform: translateY(0) scale(1.1) rotate(-10deg);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(-40px) scale(1.3) rotate(10deg);
+      }
+      100% {
+        opacity: 0.7;
+        transform: translateY(0) scale(1.1) rotate(-10deg);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header"> 
-            <h1>Ryan Cho</h1>
-        </div>
-        <p>
-            🎓 Senior @ the <span class="highlight">Illinois Mathematics and Science Academy</span>
-        </p>
-        <p>
-            Neuroscience @ <span class="highlight">University of Pennsylvannia </span>'29
-        </p>
-        <p>Current interests: 🔥 <span class="highlight">Buldak ramen</span>, 🏛️ <span class="highlight">large language models</span>, 🌐 <span class="highlight">Reddit</span>, and 🧠 <span class="highlight">computational neuroscience</span></p>
-        <p>P.S. I’m slightly allergic to 🍉 watermelon and I HATE raw 🍍 pineapple</p>
-        <p>My all-time favorite webtoon: 🧠 <strong>PIGPEN</strong>. I’m also in love with ✨ <strong>WICKED</strong> right now. I can’t wait for Part 2 to release!!!</p>
-        <p>Listen to my <a href="https://open.spotify.com/playlist/3NhKYwp7bTFWgCl2fke1YN?si=_KQHrnefTdWVyOIzUpe84g&pi=PefdbzxuT-m92&nd=1&dlsi=6039d2c6d32d4ae3" target="_blank" rel="noopener noreferrer">Spotify playlist</a>.</p>
-        
-        <div class="section">
-            <div class="card">
-                <div onclick="window.location.href='research.html';" style="cursor: pointer;"> 👩‍🔬 <strong>Research</strong><br> Side projects that I have been doing mostly related to cognitive science </div>
-                <div onclick="window.location.href='experience.html';" style="cursor: pointer;"> 💼 <strong>Experience</strong><br> Work experience that I have </div>
-            </div>
-        </div>
-        
-        <div class="section contact">
-            <h2 style="color: #FF6F61;">📬 Contact</h2>
-            <p>Feel free to reach out to <a href="mailto:ryancho1034@gmail.com">ryancho1034@gmail.com</a>, Watermelon1494 on Discord</p>
-        </div>
-    </div>
-    
-    <div class="cursor" id="cursor">🐸</div>
+  <img class="upenn-logo" src="penn_logo.jpg" alt="UPenn Logo">
+  <h1>UPenn Add/Drop Course Timer</h1>
+  <div class="subtitle">Countdown to Add/Drop Opening: <br>7:00 AM EST, July 22, 2025</div>
+  <div class="intense-text">Get ready. The clock is ticking. <span style="color:#990000">NO MERCY.</span></div>
+  <div id="countdown">
+    <div class="countdown-box" id="days">00</div>
+    <span class="colon">:</span>
+    <div class="countdown-box" id="hours">00</div>
+    <span class="colon">:</span>
+    <div class="countdown-box" id="minutes">00</div>
+    <span class="colon">:</span>
+    <div class="countdown-box" id="seconds">00</div>
+  </div>
+  <script>
+    function getESTTargetDate() {
+      // 7:00 AM EST is UTC-5, but in July, New York is in EDT (UTC-4)
+      // So, 7:00 AM EDT = 11:00 UTC
+      return new Date(Date.UTC(2025, 6, 22, 11, 0, 0));
+    }
+    function pad(n) {
+      return n.toString().padStart(2, '0');
+    }
+    function updateCountdown() {
+      const now = new Date();
+      const target = getESTTargetDate();
+      let diff = target - now;
+      if (diff < 0) diff = 0;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      document.getElementById('days').textContent = pad(days);
+      document.getElementById('hours').textContent = pad(hours);
+      document.getElementById('minutes').textContent = pad(minutes);
+      document.getElementById('seconds').textContent = pad(seconds);
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-    <script>
-
-        document.addEventListener("mousemove", (e) => {
-            let cursor = document.getElementById("cursor");
-            cursor.style.left = `${e.pageX}px`;
-            cursor.style.top = `${e.pageY}px`;
-        });
-
-        function createEmoji() {
-            const emojiArray = ['🐢', '🪼', '🧠','yay'];
-            const emoji = document.createElement('div');
-            emoji.classList.add('emoji');
-            emoji.textContent = emojiArray[Math.floor(Math.random() * emojiArray.length)];
-            document.body.appendChild(emoji);
-            
-            emoji.style.left = Math.random() * window.innerWidth + 'px';
-            emoji.style.top = '-50px';
-            emoji.style.animationDuration = (Math.random() * 3 + 5) + 's';
-            
-            setTimeout(() => {
-                emoji.remove();
-            }, 10000);
-        }
-
-        setInterval(createEmoji, 500);
-    </script>
+    // Angry emoji rain
+    const angryEmojis = ['😡','😤','👿','🔥','💢','😠','🤬','🦁','🟥'];
+    function spawnAngryEmoji() {
+      const emoji = document.createElement('div');
+      emoji.className = 'emoji';
+      emoji.textContent = angryEmojis[Math.floor(Math.random() * angryEmojis.length)];
+      emoji.style.left = Math.random() * 95 + 'vw';
+      emoji.style.top = (Math.random() * 80 + 5) + 'vh';
+      emoji.style.zIndex = 1000;
+      document.body.appendChild(emoji);
+      setTimeout(() => emoji.remove(), 2500);
+    }
+    setInterval(spawnAngryEmoji, 180);
+  </script>
 </body>
-</html>
+</html> 
